@@ -111,7 +111,7 @@ body {
 }
 
 .hero-name {
-    font-size: clamp(2.5rem, 10vw, 120px);
+    font-size: clamp(2rem, 9vw, 120px);
     font-weight: 700;
     color: var(--color-text-dark-secondary);
     text-align: justify;
