@@ -1,0 +1,23 @@
+{
+  "name": "sama-portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio website for Sama Mirshahvalad - Contemporary Sculpture Artist",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build step required'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "portfolio",
+    "sculpture",
+    "art",
+    "contemporary",
+    "artist"
+  ],
+  "author": "Sama Mirshahvalad",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}
