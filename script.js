@@ -30,18 +30,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add scroll effect to header
+    // Add scroll effect to header and work with me button
     let lastScrollTop = 0;
     const header = document.querySelector('.header');
+    const workWithMeBtn = document.getElementById('workWithMeBtn');
     
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollBottom = documentHeight - windowHeight;
         
         // Add/remove scrolled class for styling
         if (scrollTop > 100) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
+        }
+        
+        // Show work with me button when scrolled down, but hide when near bottom
+        if (scrollTop > 500 && scrollTop < (scrollBottom - 100)) {
+            workWithMeBtn.classList.add('visible');
+        } else {
+            workWithMeBtn.classList.remove('visible');
         }
         
         lastScrollTop = scrollTop;
@@ -64,16 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const socialLinks = document.querySelectorAll('.social-link');
     socialLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             // Add a subtle animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 150);
             
-            // In a real implementation, these would link to actual social media profiles
-            console.log('Social link clicked:', this.textContent);
+            // Allow the link to work normally - no preventDefault()
+            // The link will navigate to the href URL
         });
     });
 
