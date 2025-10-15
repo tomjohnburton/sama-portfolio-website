@@ -80,6 +80,17 @@ body {
     align-items: start;
 }
 
+.hero-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.hero-right-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .hero-text {
     display: flex;
     align-items: center;
@@ -90,12 +101,6 @@ body {
     color: #ffffff;
     font-weight: 400;
     line-height: 1.5;
-}
-
-.hero-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
 }
 
 .hero-image-left,
@@ -323,8 +328,7 @@ body {
         gap: 30px;
     }
     
-    .hero-images {
-        grid-template-columns: 1fr;
+    .hero-left-column {
         gap: 30px;
     }
     
