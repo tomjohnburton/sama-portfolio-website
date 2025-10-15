@@ -47,25 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections for animation
-    const sections = document.querySelectorAll('.gallery-section, .about, .contact');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
 
     // Add hover effects to placeholder images
     const placeholderImages = document.querySelectorAll('.placeholder-image');
@@ -112,15 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
 
-    // Parallax effect for hero section (subtle)
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        }
-    });
 
     // Add focus management for accessibility
     const focusableElements = document.querySelectorAll('a, button, [tabindex]');
@@ -136,39 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add CSS for scroll effects and animations
+// Add CSS for scroll effects
 const style = document.createElement('style');
 style.textContent = `
     .header.scrolled {
         background-color: rgba(10, 10, 10, 0.98);
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .animate-in {
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
-    
-    .placeholder-image {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .placeholder-image:hover {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-    
-    body.loaded .hero-content {
-        animation: fadeInUp 1s ease-out;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 `;
 document.head.appendChild(style);
