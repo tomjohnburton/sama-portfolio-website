@@ -106,44 +106,23 @@ body {
 /* Hero Section */
 .hero {
     padding: 100px var(--spacing-lg) var(--spacing-lg);
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
 }
 
 .hero-name {
-    font-size: clamp(36px, 12vw, 120px);
+    font-size: clamp(36px, 12vw, 100px);
     font-weight: 700;
-    color: var(--color-text-dark-secondary);
-    text-align: justify;
-    margin-bottom: var(--spacing-lg);
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    position: relative;
-}
-
-.hero-name::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
     color: var(--color-text-light);
-    overflow: hidden;
-    white-space: nowrap;
-    animation: fillText 2s ease-in-out forwards;
-    animation-delay: 0.5s;
-}
-
-@keyframes fillText {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
-    }
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    width: 100%;
+    max-width: none;
+    overflow-wrap: anywhere; /* allow breaking long words */
+    word-break: normal;
+    text-wrap: balance; /* nicer multi-line titles on supporting browsers */
 }
 
 .hero-content-wrapper {
@@ -576,11 +555,7 @@ body {
         height: 300px;
     }
     
-    .hero-name {
-        font-size: clamp(36px, 12vw, 80px);
-        text-align: left;
-        width: 100%;
-    }
+
     
     .hero-tagline {
         font-size: 16px;
@@ -598,10 +573,6 @@ body {
         padding: 70px 15px 40px;
     }
     
-    .hero-name {
-        width: 100%;
-        text-align: left;
-    }
     
     .hero-tagline {
         width: 100%;
